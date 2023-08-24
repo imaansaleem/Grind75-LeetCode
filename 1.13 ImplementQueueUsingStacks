@@ -1,0 +1,56 @@
+ class MyQueue {
+    stack<int>s1;
+    stack<int>s2;
+
+public:
+    MyQueue() {
+        
+    }
+    
+    void placeToStack(stack<int>&st1, stack<int>&st2){
+        while(!st1.empty()){
+            st2.push(st1.top());
+            st1.pop();
+        }
+    }
+
+    void push(int x) {
+        if(s1.size()==0)
+            s1.push(x);
+        else{
+            placeToStack(s1,s2);
+            s1.push(x);
+            placeToStack(s2,s1);
+        }
+    }
+    
+    int pop() {
+        if(s1.size()!=0){
+            int ret = s1.top();
+            s1.pop();
+            return ret;
+        }
+        return 0;
+    }
+    
+    int peek() {
+        if(s1.size()!=0)
+            return s1.top();
+        return 0;
+    }
+    
+    bool empty() {
+        if(s1.size()==0)
+            return true;
+        return false;
+    }
+};
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue* obj = new MyQueue();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->peek();
+ * bool param_4 = obj->empty();
+ */
