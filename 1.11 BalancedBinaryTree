@@ -1,0 +1,25 @@
+class Solution {
+public:
+
+    int isBalanced(TreeNode* root, bool &balanced) {
+//incase balanced is false dont let absolute difference lesser than equal to 1
+        if(!balanced)
+            return 1000;
+
+        if (root == nullptr) {
+            balanced = true;
+            return 0;
+        }
+
+        int lheight = isBalanced(root->left,balanced);
+        int rheight = isBalanced(root->right, balanced);
+        balanced = balanced && abs(lheight - rheight) <= 1;
+        return 1+max(lheight,rheight);
+    }
+
+    bool isBalanced(TreeNode* root) {
+        bool bal = true;
+        isBalanced(root, bal);
+        return bal;
+    }
+};
