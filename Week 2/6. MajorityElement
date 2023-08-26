@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int maxi = -999, value = -1;
+        unordered_map<int, int> m;
+        for(int i=0;i<nums.size();i++){
+
+//store the count o each character and see if it is max then return its key value
+            m[nums[i]]++;
+            if(maxi < m[nums[i]]){
+                maxi = m[nums[i]];
+                value = nums[i];
+            }
+        }
+        return value;
+    }
+};
