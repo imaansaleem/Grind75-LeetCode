@@ -1,0 +1,69 @@
+class Solution {
+public:
+
+    char addition(char &a, char &b, bool &carry){
+        if(a==b){
+            if(a =='1'){
+                if(carry)
+                    return '1'; //previous carry utilized new carry generated so didnot do carry = 0 
+                else{
+                    carry = 1;
+                    return '0';
+                }
+            }
+
+            if(a=='0'){
+
+                if(carry){
+                    carry = 0;
+                    return '1';
+                }
+
+                else
+                    return '0'; 
+            }
+        }
+
+        else //if carry==1 return 0 else 1
+            return carry ? '0' : '1';
+        return '0';
+    }
+
+    char leftAdd(char &a, bool &carry){
+        if(a=='0'){
+            carry = 0;
+            return '1';
+        }
+
+        else{
+            return '0';
+        }
+    }
+
+    string addBinary(string a, string b) {
+        string ans;
+        bool carry = 0;
+        int i = a.size()-1, j=b.size()-1;
+
+        for(;i>=0 && j>=0;i--,j--){
+            ans.push_back(addition(a[i], b[j], carry));
+        }
+
+        while(i>=0){
+            //if carry is one than add it to number else place the same bit
+            carry ? ans.push_back(leftAdd(a[i], carry)) : ans.push_back(a[i]);
+            i--;
+        }
+
+        while(j>=0){
+            carry ? ans.push_back(leftAdd(b[j], carry)) : ans.push_back(b[j]);
+            j--;
+        }
+
+        //if carry is still non zero
+        if(carry)
+            ans.push_back('1');
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
