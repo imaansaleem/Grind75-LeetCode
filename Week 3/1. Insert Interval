@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<vector<int>> ans;
+        for(int i=0;i<intervals.size();i++){
+            //case 1: check if second value of newinterval < first value of current interval
+            if(intervals[i][0]>newInterval[1]){
+                //if true place interval here
+                ans.push_back(newInterval);
+                while(i<intervals.size()) {
+                    ans.push_back(intervals[i]);
+                    i++;
+                }
+                return ans;
+            }
+            //if not check if come after current interval
+            else if(intervals[i][1]<newInterval[0]){
+                //if true cannot insert interval only place answer
+                ans.push_back(intervals[i]);
+            }
+
+            //case 2: overlapping
+            else{
+                newInterval[0] = min(intervals[i][0], newInterval[0]);
+                newInterval[1] = max(intervals[i][1], newInterval[1]);
+            } 
+        }
+        ans.push_back(newInterval);
+        return ans;
+    }
+};
