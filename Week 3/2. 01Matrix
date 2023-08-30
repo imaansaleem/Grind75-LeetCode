@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+        int rows = mat.size();
+        int cols = mat[0].size();
+        vector<pair<int, int>> directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        queue<pair<int, int>> q;
+
+        for (int r = 0; r < rows; ++r) {
+            for (int c = 0; c < cols; ++c) {
+                if (mat[r][c] == 0) {
+                    q.push({r, c});
+                } else {
+                    mat[r][c] = INT_MAX;
+                }
+            }
+        }
+
+        while (!q.empty()) {
+            int row = q.front().first;
+            int col = q.front().second;
+            q.pop();
+
+            for (int k=0;k<directions.size();k++) {
+                int new_row = row + directions[k].first;
+                int new_col = col + directions[k].second;
+
+                if (new_row >= 0 && new_row < rows && new_col >= 0 && new_col < cols &&
+                    mat[new_row][new_col] > mat[row][col] + 1) {
+                //mat[new_row][new_col] > mat[row][col] + 1 will not allow any index to repeat        
+                    mat[new_row][new_col] = mat[row][col] + 1;
+                    q.push({new_row, new_col});
+                }
+            }
+        }
+        return mat;
+    }
+};
