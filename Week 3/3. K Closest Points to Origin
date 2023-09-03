@@ -1,0 +1,28 @@
+class Solution {
+public:
+
+    int EuclideanDistance(int &x, int &y){
+			//origin is zero subtracting will not make any difference
+        return (x*x)+(y*y);
+    }
+
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
+        vector<vector<int>> ans(k);
+        vector<pair<int, int>> m;
+        for(int i=0;i<points.size();i++){
+//pair of (ans, answer of which index (point))
+            m.push_back(make_pair(EuclideanDistance(points[i][0],points[i][1]), i));
+        }
+//sort on the basis of first value i.e answer
+        sort(m.begin(), m.end());
+
+        int j=0;
+//placing first k indexes
+        for (int i=0;j<k;i++, j++){
+            int index = m[i].second;
+            ans[j].push_back(points[index][0]);
+            ans[j].push_back(points[index][1]);
+        }
+        return ans;
+    }
+};
