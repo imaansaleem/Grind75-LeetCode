@@ -1,0 +1,28 @@
+class Solution {
+public:
+    Node* DFS(Node* node, unordered_map<Node*, Node*>& m) {
+//check if already in hashmap return the newnode that was created against previous
+        if (m.count(node))
+            return m[node];
+
+//if already not present, create new node and add to hashmap        
+        Node* newnode = new Node(node->val);
+        m[node] = newnode;
+ 
+//pushing neighbors       
+        for (int i = 0; i < node->neighbors.size(); i++) {
+            newnode->neighbors.push_back(DFS(node->neighbors[i], m));
+        }
+        
+        return newnode;
+    }
+
+    Node* cloneGraph(Node* node) {
+        unordered_map<Node*, Node*> m;
+//if graph is empty
+        if (node == nullptr)
+            return node;
+        Node* clonedGraph = DFS(node, m);
+        return clonedGraph;
+    }
+};
