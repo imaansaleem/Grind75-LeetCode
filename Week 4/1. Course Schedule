@@ -1,1 +1,47 @@
+class Solution {
+public:
 
+    bool dfs(vector<vector<int>> &list, vector<bool> &visited, int r,vector<bool>&s){
+
+        if(!visited[r]){
+            s[r] = true;
+            visited[r] = true;
+            for(int i=0;i<list[r].size();i++){
+                if(!visited[list[r][i]] && dfs(list, visited, list[r][i],s)){
+                    return true;
+                }
+
+                else if(s[list[r][i]])
+                   return true; 
+            }
+        }
+        s[r] = false;
+        return false;
+    }
+
+    bool isCycle(vector<vector<int>> &a){
+        int parent;
+        vector<bool> visited(a.size(),false);
+        vector<bool> s(a.size(),false);
+        for(int i=0;i<a.size();i++){
+            if(!visited[i] && dfs(a,visited,i,s)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void makeGraph(vector<vector<int>> &a, vector<vector<int>>& prerequisites){
+        for(int i=0;i<prerequisites.size();i++){
+            a[prerequisites[i][0]].push_back(prerequisites[i][1]);
+        }
+    }
+
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<vector<int>> a(numCourses);
+        makeGraph(a,prerequisites);
+        if(isCycle(a))
+            return false;
+        return true;
+    }
+};
