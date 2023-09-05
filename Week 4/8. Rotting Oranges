@@ -1,1 +1,59 @@
+class Solution {
+public:
 
+    int BFS(vector<vector<int>>& grid){
+        int fresh=0, count=0, row, col; //keep count of fresh fruits
+        bool add = false;
+        queue<vector<int>> q;
+        //direction up right down left
+        vector<vector<int>> dir = {{-1,0}, {0,1}, {1,0}, {0,-1}};
+
+        for(int i=0;i<grid.size();i++){
+            for(int j=0;j<grid[0].size();j++){
+
+                //push all positions of rotten fruits
+                if(grid[i][j]== 2){
+                    q.push({i,j});
+                }
+
+                else //others will be 0 or 1 if 1 add it to fresh
+                    fresh+=grid[i][j];
+            }
+        }
+
+        while (!q.empty() && fresh>0) { //if fresh<=0 our destination is achieved
+            int levelSize = q.size();
+            
+            for (int i = 0; i < levelSize; ++i) {
+                vector<int> x = q.front();
+                q.pop();
+
+                //moving in all the 4  directions
+                for(int j=0;j<4;j++){
+                    row = x[0]+dir[j][0];
+                    col = x[1]+dir[j][1];
+
+                    //if cell is 0 or 2 then dont need to decrement fresh as it is already rotten or empty
+                    if(!(row<0 || row>=grid.size() || col<0 || col>=grid[0].size() || grid[row][col]==2 || grid[row][col]==0)){
+                        q.push({row, col});
+                        grid[row][col] = 2;
+                        fresh--;
+                        add = true;
+                    }
+                }
+                //if left or right no fruit is rotten that means we will not count 1 sec
+            }
+            //dont increment if no fruit is rotten
+            if(add)
+                count++; //increment 1 after whole level consumed
+            add = false;
+        }
+        if(fresh>0) //check if all fruits are rotten 
+            return -1; //if no then we cannot do this
+        return count;
+    }
+
+    int orangesRotting(vector<vector<int>>& grid) {
+        return BFS(grid);
+    }
+};
