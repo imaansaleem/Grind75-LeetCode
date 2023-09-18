@@ -1,0 +1,30 @@
+class Solution {
+public:
+
+    void DFS(vector<int>& candidates, int target, vector<vector<int>> &ans, vector<int> &curr, int i, int sum) {
+        if(sum==target){
+            ans.push_back(curr);
+            return;
+        }
+
+        if(sum>target || i>=candidates.size()){
+            return;
+        }
+
+        //adding candidate
+        curr.push_back(candidates[i]);
+        DFS(candidates, target, ans, curr, i, sum+candidates[i]);
+
+        //not adding candidate
+        curr.pop_back();
+        DFS(candidates, target, ans, curr, i+1, sum);
+
+    }
+
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> ans;
+        vector<int> curr;
+            DFS(candidates, target, ans, curr, 0, 0);
+        return ans;
+    }
+};
