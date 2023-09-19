@@ -1,0 +1,73 @@
+class Solution {
+public:
+
+    void make(int v, vector<int>&size, vector<int>&parent){
+        parent[v] = v;
+        size[v] = 1;
+    }
+
+    int find(int v, vector<int>&parent) {
+
+        if(v == parent [v]) 
+            return v; // Path compression
+        return parent [v] = find (parent [v], parent);
+    }
+
+    void Union(int a, int b, vector<int>&size, vector<int>&parent){
+
+        a = find(a, parent); 
+        b = find (b, parent);
+        if(a != b){
+            // Union by size 
+            if (size [a] < size [b]) 
+                swap(a, b);
+            parent [b] = a; 
+            size [a] += size [b];
+        }
+    }
+
+    vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
+
+        //How DSU will be applied here?
+        //Each account i.e account i will be 1 set
+        //e.g For testcase 1 there are 3 accounts, for John, John and marry
+        //firstly make 3 individual sets where 0's parent is 0, 1's parent is 1 and 2's parent is 2 
+
+        unordered_map<string, int> m;
+        vector<int>parent(accounts.size());
+        vector<int>size(accounts.size());
+
+        for(int i=0;i<accounts.size();i++){
+            make(i, size, parent); //make every index as individual
+            for(int j=1;j<accounts[i].size();j++){
+                if(m.count(accounts[i][j])){
+                //if particular mail already exist in map then make an edge between:
+                //index of array and the index of already existed      
+
+                    Union(m[accounts[i][j]], i, size, parent);
+                }
+
+                else
+                    m[accounts[i][j]] = i; //place in map
+            }
+        }
+//accounts need not to be in sorted order so take unordered map
+        unordered_map<int,vector<string>> temp;
+        for(auto itr = m.begin();itr!=m.end();itr++){ //m is map so no chance of duplicated mails 
+            int p = find(itr->second,parent); //who is the parent of this particular mail's parent
+            temp[p].push_back(itr->first); //place the mail to index that is equal to parent
+        }
+
+        vector<vector<string>> ans;
+        for(auto itr = temp.begin();itr!=temp.end();itr++){
+            vector<string> t;
+            t.push_back(accounts[itr->first][0]); //first place name and then the vector of string
+            sort(itr->second.begin(),itr->second.end()); //traverse the vector that is present at second part of temp
+            for(int i=0;i<itr->second.size();i++){ //placing remaining vector of string
+                t.push_back(itr->second[i]);
+            }
+            ans.push_back(t);
+        }        
+        return ans;
+    }
+};
