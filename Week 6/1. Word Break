@@ -1,1 +1,39 @@
+class Solution {
+public:
+//This will match substring to the main string
+    bool prefixMatch(string s1, string s2, int start) {
+        if ((s1.size() - start) < s2.size())
+            return false;
 
+        for (int i = 0, j = start; i < s2.size(); j++, i++) {
+            if (s1[j] != s2[i])
+                return false;
+        }
+        return true;
+    }
+
+    bool decision(string s, vector<string>& wordDict, int i, vector<int>& memo) {
+        if (i >= s.size()) //we have reached end of s and it means we have found
+            return true;
+        
+        if (memo[i] != -1) //dp
+            return memo[i];
+
+        int j;
+        for (j = 0; j < wordDict.size(); j++) {
+//first check if this matches with s if yes then check after adding it to our string
+            if (prefixMatch(s, wordDict[j], i) && decision(s, wordDict, i + wordDict[j].length(), memo)) {
+                memo[i] = 1;
+                return true;
+            }
+        }
+
+        memo[i] = 0;
+        return false;
+    }
+
+    bool wordBreak(string s, vector<string>& wordDict) {
+        vector<int> memo(s.size(), -1);
+        return decision(s, wordDict, 0, memo);
+    }
+};
