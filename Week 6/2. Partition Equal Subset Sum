@@ -1,1 +1,34 @@
+class Solution {
+public:
 
+    bool DFS(vector<int>& nums, int target, int i, vector<vector<int>>& memo) {
+
+        if(target<0 || i>=nums.size()){
+            return false;
+        }
+
+        if(target == 0){
+            return true;
+        }
+
+        if (memo[i][target] != -1)
+            return memo[i][target];
+
+        //adding nums index or not adding nums index
+        memo[i][target] = DFS(nums, target-nums[i], i+1, memo) || DFS(nums, target, i+1, memo);
+        //make sure to increment i in all cases
+        return memo[i][target];
+    }
+
+    bool canPartition(vector<int>& nums) {
+        int sum = 0;
+        for(int i=0;i<nums.size();i++)
+            sum = sum+nums[i];
+    
+        if(sum%2==1)
+            return false;
+        int target = sum/2;
+        vector<vector<int>> memo(nums.size(), vector<int>(target + 1, -1));
+        return DFS(nums,sum/2,0, memo);
+    }
+};
