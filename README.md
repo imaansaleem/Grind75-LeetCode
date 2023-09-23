@@ -37,11 +37,11 @@ This repository contains the solution of Grind75 at Leetcode
 **10. Lowest Common Ancestor of a Binary Search Tree**<br>
 [https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/]
 
-**11. Balanced Binary Tree**
+**11. Balanced Binary Tree**<br>
 [https://leetcode.com/problems/balanced-binary-tree/]
 
-**12. Linked List Cycle**
+**12. Linked List Cycle**<br>
 [https://leetcode.com/problems/linked-list-cycle/]
 
-**13. Implement Queue using Stacks**
+**13. Implement Queue using Stacks**<br>
 [https://leetcode.com/problems/implement-queue-using-stacks/]
