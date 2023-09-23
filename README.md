@@ -8,7 +8,7 @@ This repository contains the solution of Grind75 at Leetcode
 
 # Week 1
 **1. Two Sum**<br>
-[https://leetcode.com/problems/two-sum/]
+https://leetcode.com/problems/two-sum/
 
 **2. Valid Parentheses**<br>
 [https://leetcode.com/problems/valid-parentheses/]
