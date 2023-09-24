@@ -60,7 +60,7 @@ https://leetcode.com/problems/climbing-stairs/
 **4. Longest Palindrome**
 https://leetcode.com/problems/longest-palindrome/
 
-**5. **Reverse Linked List**
+**5. Reverse Linked List**
 https://leetcode.com/problems/reverse-linked-list/
 
 **6. Majority Element**
@@ -69,7 +69,7 @@ https://leetcode.com/problems/majority-element/
 **7. Add Binary**
 https://leetcode.com/problems/add-binary/
 
-**8. **Diameter of Binary Tree**
+**8. Diameter of Binary Tree**
 https://leetcode.com/problems/diameter-of-binary-tree/
 
 **9. Middle of the Linked List**
@@ -78,8 +78,8 @@ https://leetcode.com/problems/middle-of-the-linked-list/
 **10. Maximum Depth of Binary Tree**
 https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
-**11. **Contains Duplicate**
+**11. Contains Duplicate**
 https://leetcode.com/problems/contains-duplicate/
 
-**12. **Maximum Subarray**
+**12. Maximum Subarray**
 https://leetcode.com/problems/maximum-subarray/
