@@ -48,38 +48,38 @@ https://leetcode.com/problems/implement-queue-using-stacks/
 
 # Week 2
 
-**1. First Bad Version**
+**1. First Bad Version**<br>
 https://leetcode.com/problems/first-bad-version/
 
-**2. Ransom Note**
+**2. Ransom Note**<br>
 https://leetcode.com/problems/ransom-note/
 
-**3. Climbing Stairs**
+**3. Climbing Stairs**<br>
 https://leetcode.com/problems/climbing-stairs/
 
-**4. Longest Palindrome**
+**4. Longest Palindrome**<br>
 https://leetcode.com/problems/longest-palindrome/
 
-**5. Reverse Linked List**
+**5. Reverse Linked List**<br>
 https://leetcode.com/problems/reverse-linked-list/
 
-**6. Majority Element**
+**6. Majority Element**<br>
 https://leetcode.com/problems/majority-element/
 
-**7. Add Binary**
+**7. Add Binary**<br>
 https://leetcode.com/problems/add-binary/
 
-**8. Diameter of Binary Tree**
+**8. Diameter of Binary Tree**<br>
 https://leetcode.com/problems/diameter-of-binary-tree/
 
-**9. Middle of the Linked List**
+**9. Middle of the Linked List**<br>
 https://leetcode.com/problems/middle-of-the-linked-list/
 
-**10. Maximum Depth of Binary Tree**
+**10. Maximum Depth of Binary Tree**<br>
 https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
-**11. Contains Duplicate**
+**11. Contains Duplicate**<br>
 https://leetcode.com/problems/contains-duplicate/
 
-**12. Maximum Subarray**
+**12. Maximum Subarray**<br>
 https://leetcode.com/problems/maximum-subarray/
