@@ -84,21 +84,28 @@ https://leetcode.com/problems/contains-duplicate/
 **12. Maximum Subarray**<br>
 https://leetcode.com/problems/maximum-subarray/
 
-# Week 2
+# Week 3
 
-**1. Insert Interval**
+**1. Insert Interval**<br>
 https://leetcode.com/problems/insert-interval/
 
-[2. **01 Matrix**](https://www.notion.so/2-01-Matrix-7d3ff2446d064374a4f27ecc5b14f286?pvs=21)
+**2. 01 Matrix**<br>
+https://leetcode.com/problems/01-matrix/
 
-[3. **K Closest Points to Origin**](https://www.notion.so/3-K-Closest-Points-to-Origin-3168a3cab34440bda7f44c1a7898e4d0?pvs=21)
+**3. K Closest Points to Origin**<br>
+https://leetcode.com/problems/k-closest-points-to-origin/
 
-[4. Longest Substring Without Repeating Characters](https://www.notion.so/4-Longest-Substring-Without-Repeating-Characters-75354d6c72864d2fa7430c1242f8457a?pvs=21)
+**4. Longest Substring Without Repeating Characters**<br>
+https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
-[5. 3Sum](https://www.notion.so/5-3Sum-80fe6c2484ac41eca122d270d9fba3bc?pvs=21)
+**5. 3Sum**<br>
+https://leetcode.com/problems/3sum/
 
-[6. **Binary Tree Level Order Traversal**](https://www.notion.so/6-Binary-Tree-Level-Order-Traversal-80a6f85f1a4a4d11b8c1fa7030c5376f?pvs=21)
+**6. Binary Tree Level Order Traversal**<br>
+https://leetcode.com/problems/clone-graph/
 
-[7. **Clone Graph**](https://www.notion.so/7-Clone-Graph-dfd5a22e7214490f9745034688dcd440?pvs=21)
+**7. Clone Graph**<br>
+https://leetcode.com/problems/evaluate-reverse-polish-notation/
 
-[8. **Evaluate Reverse Polish Notation**](https://www.notion.so/8-Evaluate-Reverse-Polish-Notation-90c6e1472ed54060a7b43125934cd69e?pvs=21)
+**8. Evaluate Reverse Polish Notation**<br>
+https://leetcode.com/problems/evaluate-reverse-polish-notation/
