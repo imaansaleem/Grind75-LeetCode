@@ -111,3 +111,27 @@ https://leetcode.com/problems/evaluate-reverse-polish-notation/
 https://leetcode.com/problems/evaluate-reverse-polish-notation/
 
 # Week 4
+
+**1. Course Schedule**<br>
+https://leetcode.com/problems/course-schedule/
+
+**2. Implement Trie (Prefix Tree)**<br>
+https://leetcode.com/problems/implement-trie-prefix-tree/
+
+**3. Coin Change**<br>
+https://leetcode.com/problems/coin-change/
+
+**4. Product of Array Except Self**<br>
+https://leetcode.com/problems/product-of-array-except-self/
+
+**5. Min Stack**<br>
+https://leetcode.com/problems/min-stack/
+
+**6. Validate Binary Search Tree**<br>
+https://leetcode.com/problems/validate-binary-search-tree/
+
+**7. Number of Islands**<br>
+https://leetcode.com/problems/number-of-islands/
+
+**8. Rotting Oranges**<br>
+https://leetcode.com/problems/rotting-oranges/
