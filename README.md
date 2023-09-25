@@ -138,26 +138,26 @@ https://leetcode.com/problems/rotting-oranges/
 
 # Week 5
 
-**1. Search in Rotated Sorted Array**
+**1. Search in Rotated Sorted Array**<br>
 https://leetcode.com/problems/search-in-rotated-sorted-array/
 
-**2. Combination Sum**
+**2. Combination Sum**<br>
 https://leetcode.com/problems/combination-sum/
 
-**3. Permutations**
+**3. Permutations**<br>
 https://leetcode.com/problems/permutations/
 
-**4. Merge Intervals**
+**4. Merge Intervals**<br>
 https://leetcode.com/problems/merge-intervals/
 
-**5. Lowest Common Ancestor of a Binary Tree**
+**5. Lowest Common Ancestor of a Binary Tree**<br>
 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 
-**6. Time Based Key-Value Store**
+**6. Time Based Key-Value Store**<br>
 https://leetcode.com/problems/time-based-key-value-store/
 
-**7. Accounts Merge**
+**7. Accounts Merge**<br>
 https://leetcode.com/problems/sort-colors/
 
-**8. Sort Colors**
+**8. Sort Colors**<br>
 https://leetcode.com/problems/sort-colors/
