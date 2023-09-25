@@ -115,7 +115,7 @@ https://leetcode.com/problems/evaluate-reverse-polish-notation/
 **1. Course Schedule**<br>
 https://leetcode.com/problems/course-schedule/
 
-**2. Implement Trie (Prefix Tree)**<br>
+**2. Implement Trie(Prefix Tree)** <br>
 https://leetcode.com/problems/implement-trie-prefix-tree/
 
 **3. Coin Change**<br>
@@ -135,3 +135,29 @@ https://leetcode.com/problems/number-of-islands/
 
 **8. Rotting Oranges**<br>
 https://leetcode.com/problems/rotting-oranges/
+
+# Week 5
+
+**1. Search in Rotated Sorted Array**
+https://leetcode.com/problems/search-in-rotated-sorted-array/
+
+**2. Combination Sum**
+https://leetcode.com/problems/combination-sum/
+
+**3. Permutations**
+https://leetcode.com/problems/permutations/
+
+**4. Merge Intervals**
+https://leetcode.com/problems/merge-intervals/
+
+**5. Lowest Common Ancestor of a Binary Tree**
+https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+
+**6. Time Based Key-Value Store**
+https://leetcode.com/problems/time-based-key-value-store/
+
+**7. Accounts Merge**
+https://leetcode.com/problems/sort-colors/
+
+**8. Sort Colors**
+https://leetcode.com/problems/sort-colors/
