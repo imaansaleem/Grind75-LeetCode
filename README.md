@@ -210,3 +210,37 @@ https://leetcode.com/problems/task-scheduler/
 
 **7. LRU Cache**<br>
 https://leetcode.com/problems/lru-cache/
+
+Certainly, here's the list reformatted with LeetCode links:
+
+# Week 8
+
+**1. Kth Smallest Element in a BST**<br>
+https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+
+**2. Minimum Window Substring**<br>
+https://leetcode.com/problems/minimum-window-substring/
+
+**3. Serialize and Deserialize Binary Tree**<br>
+https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
+
+**4. Trapping Rain Water**<br>
+https://leetcode.com/problems/trapping-rain-water/
+
+**5. Find Median from Data Stream**<br>
+https://leetcode.com/problems/find-median-from-data-stream/
+
+**6. Word Ladder**<br>
+https://leetcode.com/problems/word-ladder/
+
+**7. Basic Calculator**<br>
+https://leetcode.com/problems/basic-calculator/
+
+**8. Maximum Profit in Job Scheduling**<br>
+https://leetcode.com/problems/maximum-profit-in-job-scheduling/
+
+**9. Merge k Sorted Lists**<br>
+https://leetcode.com/problems/merge-k-sorted-lists/
+
+**10. Largest Rectangle in Histogram**<br>
+https://leetcode.com/problems/largest-rectangle-in-histogram/
