@@ -162,30 +162,51 @@ https://leetcode.com/problems/sort-colors/
 **8. Sort Colors**<br>
 https://leetcode.com/problems/sort-colors/
 
-Certainly, here are the links you provided reformatted for Week 6:
-
 # Week 6
 
 **1. Word Break**<br>
 https://leetcode.com/problems/word-break/
 
 **2. Partition Equal Subset Sum**<br>
-https://www.notion.so/2-Partition-Equal-Subset-Sum-9c4b412ac4404452bfce437ca9412687?pvs=21
+https://leetcode.com/problems/partition-equal-subset-sum/
 
 **3. String to Integer (atoi)**<br>
-https://www.notion.so/3-String-to-Integer-atoi-fb6889375b36408c83f62428e2f3a17e?pvs=21
+https://leetcode.com/problems/string-to-integer-atoi/
 
 **4. Spiral Matrix**<br>
-https://www.notion.so/4-Spiral-Matrix-929880ac078f44a08ef56259699cc6b5?pvs=21
+https://leetcode.com/problems/spiral-matrix/
 
 **5. Subsets**<br>
-https://www.notion.so/5-Subsets-070ba97244cb4216b9636684901de6d2?pvs=21
+https://leetcode.com/problems/subsets/
 
 **6. Binary Tree Right Side View**<br>
-https://www.notion.so/6-Binary-Tree-Right-Side-View-91af48736e4b44d08678a6354d196d3f?pvs=21
+https://leetcode.com/problems/binary-tree-right-side-view/
 
 **7. Longest Palindromic Substring**<br>
-https://www.notion.so/7-Longest-Palindromic-Substring-c37f9a0048af4ab18a771d2cbbd0d68a?pvs=21
+https://leetcode.com/problems/longest-palindromic-substring/
 
 **8. Unique Paths**<br>
-https://www.notion.so/8-Unique-Paths-c2ee4807c09042b98f5cf1b27d46e61c?pvs=21
+https://leetcode.com/problems/unique-paths/
+
+# Week 7
+
+**1. Container With Most Water**<br>
+https://leetcode.com/problems/container-with-most-water/
+
+**2. Letter Combinations of a Phone Number**<br>
+https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+
+**3. Word Search**<br>
+https://leetcode.com/problems/word-search/
+
+**4. Find All Anagrams in a String**<br>
+https://leetcode.com/problems/find-all-anagrams-in-a-string/
+
+**5. Minimum Height Trees**<br>
+https://leetcode.com/problems/minimum-height-trees/
+
+**6. Task Scheduler**<br>
+https://leetcode.com/problems/task-scheduler/
+
+**7. LRU Cache**<br>
+https://leetcode.com/problems/lru-cache/
