@@ -1,0 +1,27 @@
+class Solution {
+public:
+
+    void subsets(vector<vector<int>> &ret, vector<int>& nums, vector<int>&subset, int i){
+
+        if(i>=nums.size()){
+            ret.push_back(subset);
+            return;
+        }
+
+        //not considering element
+        subsets(ret,nums,subset,i+1);
+        
+
+        //considering element
+        subset.push_back(nums[i]);
+        subsets(ret,nums,subset,i+1);
+        subset.pop_back(); //backtracking
+    }
+    
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> ret;
+        vector<int> subset;
+        subsets(ret,nums,subset,0);
+        return ret;
+    }
+};
