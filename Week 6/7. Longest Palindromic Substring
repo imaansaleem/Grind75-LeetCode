@@ -1,0 +1,38 @@
+class Solution {
+public:
+
+    string palindrome(string &s, int x, int y){
+        string l;
+//Advance to left and right of it using two pointers checking that if we are getting a palindrome
+        for(int i=x,j=y;;i--, j++){
+            if(i<0 || j>=s.size() || s[i]!=s[j]){
+//Once left pointer≠right pointer save the newly made string and return
+                for(int k=i+1; k<j; k++){
+                    l.push_back(s[k]);
+                }
+                return l;
+            }
+        }
+    }
+
+    void maxString(string &ans, string &maxi){
+        if(ans.size()>maxi.size())
+            maxi = ans;
+    }
+
+    string longestPalindrome(string s) {
+        string ans, maximum;
+//For each element of string, consider it as a center of your palindrome.
+        for(int i=0;i<s.size();i++){
+
+//For odd palindrome centre’s left and right must be equal
+            ans = palindrome(s,i,i); 
+            maxString(ans,maximum); 
+
+//For even palindrome centre will be the left pointer and right will be +1
+            ans = palindrome(s,i+1,i);
+            maxString(ans,maximum); 
+        }
+        return maximum;
+    }
+};
