@@ -1,0 +1,42 @@
+class Solution {
+public:
+    void turn(vector<vector<int>>& matrix, vector<int>& ans, int &lastrow, int &lastcol, int &firstrow, int &firstcol){
+        //left to right
+        for(int j=firstcol;j<lastcol;j++){
+            ans.push_back(matrix[firstrow][j]);
+        }
+        firstrow++;//so that this index is not involved while moving down
+
+        //down
+        for(int i=firstrow;i<lastrow;i++){
+            ans.push_back(matrix[i][lastcol-1]);
+        }
+        lastcol--; //so that this index is not involved while moving right to left
+
+        if(firstrow>=lastrow || firstcol>=lastcol)
+            return;
+
+        //right to left
+        for(int j=lastcol-1;j>=firstcol;j--){
+            ans.push_back(matrix[lastrow-1][j]);
+        }
+        lastrow--;
+
+        //up
+        for(int i=lastrow-1;i>=firstrow;i--){
+            ans.push_back(matrix[i][firstcol]);
+        }
+        firstcol++;
+    }
+
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int> ans;
+        int firstrow = 0, firstcol = 0;
+        int lastcol = matrix[0].size(); 
+        int lastrow = matrix.size(); 
+        while(firstcol < lastcol && firstrow < lastrow){
+            turn(matrix,ans,lastrow, lastcol, firstrow, firstcol);
+        }
+        return ans;
+    }
+};
