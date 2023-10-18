@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int myAtoi(string s) {
+        int ans, op = 1,result=0, i;
+        bool assigned = false;
+        //ignore white spaces and set operators handle a to z letters
+        for(i=0;i<s.size() && !(s[i] >= '0' && s[i] <= '9');i++){
+            if(s[i] == '-'){
+                if(!assigned){
+                    //assigned will make sure 2 operators cannot come before digits
+                    assigned = true;
+                    op = -1;
+                }
+                else
+                    return 0;
+            }
+
+            else if(s[i] == '+'){
+                if(!assigned)
+                    assigned = true;
+                else
+                    return 0;
+            }
+
+            // if letters come between a to z then return 0
+            else if(s[i] >='a' && s[i] <= 'z'){
+                return 0;
+            }
+        }
+            
+        for(int j=i;j<s.size() && (s[j] >= '0' && s[j] <= '9');j++){
+            if(result>INT_MAX/10){ //befor multiplying check will it exceed the capacity if yes then return max or min depending upon the operator
+                if(op<0)
+                    return INT_MIN;
+                else
+                    return INT_MAX;
+            }
+                
+            result = result * 10 + (s[j] - '0');
+        }
+
+        return op*result; 
+    }
+};
