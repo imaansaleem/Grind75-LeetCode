@@ -1,0 +1,77 @@
+// Define a Node structure to represent individual elements in the Doubly linked list
+struct Node {
+    int key;
+    int val;
+    Node* next;
+    Node* prev;
+
+    Node(int k, int v, Node* n=nullptr, Node* p=nullptr){
+        key = k;
+        val = v;
+        next = n;
+        prev = p;
+    }
+};
+
+
+class LRUCache {
+    unordered_map<int, Node*>m;
+    Node* left; //Least Recently used
+    Node* right;// Most recently used
+    int mapCapacity;
+public:
+    LRUCache(int capacity) {
+        mapCapacity = capacity;
+        left = new Node(0,0);
+        right = new Node(0,0);
+        left->next = right;
+        right->prev = left;
+    }
+}
+
+    void insert(Node* n){
+    //adding n close to left
+        right->prev->next = n;
+        n->prev = right->prev;
+        n->next = right;
+        right->prev = n;
+    }
+    
+    void remove(Node* n){
+        //removing n from existing link
+        n->prev->next = n->next;
+        n->next->prev = n->prev;
+    }
+
+    int get(int key) {
+        if(m.count(key)){
+            //Update Most recently used
+            remove(m[key]);
+            insert(m[key]);
+            return m[key]->val;
+        }
+        return -1;
+    }
+    
+    void put(int key, int value) {
+        if(m.count(key)){
+            remove(m[key]);
+        }
+        m[key] = new Node(key, value);
+        insert(m[key]);
+
+        if(m.size()>mapCapacity){
+            Node* lruNode = left->next;
+            remove(lruNode);
+            m.erase(lruNode->key);
+            delete lruNode;
+        }
+    }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
