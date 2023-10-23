@@ -1,0 +1,53 @@
+class Solution {
+public:
+
+    int leastInterval(vector<char>& tasks, int n) {
+        //if there is no delay we don't need to actually check anything
+        if(n==0)
+            return tasks.size();
+
+        priority_queue <int> pq;
+        queue<pair<int, int>> turn; 
+        vector<int>m(26,0);
+
+        //saving counts of each character
+        for(int i=0;i<tasks.size();i++)
+            m[tasks[i]-'A']++;
+
+        //building a max heap using frequency of each character
+        for(int i=0;i<m.size();i++){
+            if(m[i]!=0)
+                pq.push(m[i]);
+        }
+
+        int time = 0;
+        int x;
+
+        //there is time when max heap is empty but queue will add something to it later so
+        //we need to make sure both of them must be empty
+        while(!pq.empty() || !turn.empty()){
+
+            //increment time to keep track of current time
+            time++;
+
+            //check if heap is not empty then pop first element 
+            //else CPU will enter delay
+            if(!pq.empty()){
+                x = pq.top();
+                pq.pop();
+
+                //Always check is it abble to be added to heap again?
+                //if it is 0 its not
+                if(--x>0)
+                    turn.push({x, time+n});
+            }
+
+            //Check every time if we got the time of again adding it to max heap
+            if(turn.front().second==time){
+                pq.push(turn.front().first);
+                turn.pop();
+            }
+        }
+        return time;
+    }
+};
