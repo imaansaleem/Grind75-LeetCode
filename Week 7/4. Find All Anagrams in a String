@@ -1,0 +1,43 @@
+class Solution {
+public:
+
+    vector<int> findAnagrams(string s, string p) {
+        vector<int>ans;
+        vector<int>arr(26,0);
+        bool selected = true;
+        int totalcount = 0;
+        for(int i=0;i<p.size();i++){
+            //save counts of each character
+            arr[p[i]-97]++;
+            //count the total number of digits
+            totalcount++;
+        }
+
+        int index;
+        for(int i=0;i<s.size();i++){
+            vector<int>temp = arr;
+            int c = totalcount;
+
+            //travere the string untill all counts are 0
+            //c = 0 means the anagram found
+            for(int j=i;j<s.size() && c>0;j++){
+                index = s[j]-97;
+
+                // if c>0 and count of any element is over than it is obviously not aan anagram
+                if(temp[index]<=0){
+                    selected = false;
+                    break;
+                }
+        
+                c--;
+                temp[index]--;
+            }
+
+            //if it is selected but all the p elements are no found i.e c!=0 then it is not an anagram
+            if(selected && c==0)
+                ans.push_back(i);
+            selected = true;
+        }
+        return ans;
+    }
+};
