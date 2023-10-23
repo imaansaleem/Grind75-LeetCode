@@ -1,0 +1,51 @@
+class Solution {
+public:
+    vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
+        vector<int>ans;
+        vector<vector<int>> adjcencyList(n);
+
+        if(n==1)
+            return {0};
+
+        vector<int>degree(n,0);
+        for(int i=0;i<edges.size();i++){
+            adjcencyList[edges[i][0]].push_back(edges[i][1]);
+            adjcencyList[edges[i][1]].push_back(edges[i][0]);
+            degree[edges[i][0]]++; //calculating degree of each node
+            degree[edges[i][1]]++;
+        }
+
+        queue<int>q;
+        for(int i=0;i<n;i++){
+            if(degree[i]==1)//leaf nodes
+                q.push(i);
+        }
+
+        //maximum nodes to be returned is 2
+        //if n == 2 then direct return 
+        //so this condition will not let u enter to loop
+        while(n>2){
+            //leaf nodes are definately not returning as ans
+            int s = q.size();
+            n = n-s;
+            for(int i=0;i<s;i++){
+                int c = q.front();
+                q.pop();
+                //traverse the list of pop element
+                for(int j=0;j<adjcencyList[c].size();j++){
+                    //decrease its degree by 1;
+                    degree[adjcencyList[c][j]]--;
+                    //if degree turns out to be 1 add it to queue
+                    if(degree[adjcencyList[c][j]] == 1)
+                        q.push(adjcencyList[c][j]);
+                }
+            }
+        }
+        while(!q.empty()){
+            //remaining elements in queue must be MHT root
+            ans.push_back(q.front());
+            q.pop();
+        }
+        return ans;
+    }
+};
