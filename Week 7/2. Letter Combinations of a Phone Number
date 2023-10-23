@@ -1,0 +1,45 @@
+class Solution {
+public:
+
+//Hardcode all the values in Map to get the required string in constant time
+    void makeMappings(unordered_map<int, string>&mappings){
+        mappings[2] = "abc";
+        mappings[3] = "def";
+        mappings[4] = "ghi";
+        mappings[5] = "jkl";
+        mappings[6] = "mno";
+        mappings[7] = "pqrs";
+        mappings[8] = "tuv";
+        mappings[9] = "wxyz";
+    }
+
+    void backtracking(string &digits, int i, vector<string> &ans, string &n, unordered_map<int, string>&mappings){
+//When the digits are over place the created string in your answer vector
+        if(i>=digits.size()){
+            ans.push_back(n);
+            return;
+        }
+
+        string x = mappings[digits[i]-'0'];
+
+//Iterate through the whole string and send call for next digit 
+        for(int j=0;j<x.size();j++){
+            n.push_back(x[j]);
+            backtracking(digits, i+1, ans, n, mappings);
+//Dont forget to pop_back character from string
+            n.pop_back();
+        }
+    }
+
+    vector<string> letterCombinations(string digits) {
+        unordered_map<int, string>mappings;
+        vector<string> ans;
+        string n;
+        if(digits=="")
+            return ans;
+        makeMappings(mappings);
+//Start from the first digit.
+        backtracking(digits, 0, ans, n, mappings);
+        return ans;
+    }
+};
