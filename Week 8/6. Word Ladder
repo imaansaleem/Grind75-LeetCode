@@ -1,0 +1,54 @@
+class MedianFinder {
+public:   
+
+    priority_queue<int> maxheap;
+
+    priority_queue<int, vector<int>, greater<int> > minheap;
+    int minsize;
+
+    MedianFinder() {
+        minsize = 0;
+    }
+    
+    void addNum(int num) {
+        //Always add to max heap
+        maxheap.push(num);
+        
+        //sizes must be approximately same
+
+        //remove maximum from maxheap to maintain condition maxheap.top()<=minheap.top()
+        //add to min heap
+        minheap.push(maxheap.top());
+        maxheap.pop();
+
+        //if size difference > 1 add to min heap after removing it from max heap
+        if(maxheap.size() - minheap.size()>1){
+            //remove maximum from maxheap
+            //add to min heap
+            maxheap.push(minheap.top());
+            minheap.pop();
+            cout << maxheap.size() << ' ' << minheap.size() << endl;
+        }
+    }
+    
+    double findMedian() {
+        
+        // if sizes are different then list size is odd
+        if(maxheap.size()>minheap.size() || minheap.empty())
+            return maxheap.top();
+        
+        // if sizes are same then list size is oddd
+        else if(maxheap.size()==minheap.size())
+            return (maxheap.top()+minheap.top())/2.0;
+        
+        else
+            return minheap.top();
+    }
+};
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder* obj = new MedianFinder();
+ * obj->addNum(num);
+ * double param_2 = obj->findMedian();
+ */
