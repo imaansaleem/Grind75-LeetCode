@@ -1,0 +1,68 @@
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        string ans;
+
+        //if string s is smaller than t then no way of having subset in s
+        if(s.size()<t.size())
+            return ans;
+        
+        unordered_map<char, int>tCount;
+        unordered_map<char, int> slidingCount;
+
+        //final end must be 1 less than final start to handle the case s = "a" and t="b"
+        //-1 == -1 and runtime error will occur 
+        int need=0, have=0, start = 0, end, minlength = 9999999, length = 0, finalStart=-1, finalEnd=-2;
+        for(int i=0;i<t.size();i++){
+
+            //saving count of each character available in t
+            if(tCount.count(t[i]))
+                tCount[t[i]]++;
+            else{ // also tell the key values for s
+                tCount[t[i]] = 1;
+                slidingCount[t[i]] = 0;
+            }
+            need++;
+        }
+
+        for(int i=0;i<s.size();i++){
+            //if character is from map
+            if(slidingCount.count(s[i])){
+                //if there is need for that character then add to have else just increment SlidingCount 
+                if(slidingCount[s[i]]<tCount[s[i]])
+                    have++;
+                slidingCount[s[i]]++;
+
+                //continue shrinking string if have == need
+                while(have==need){
+                    end = i;
+                    length = end-start+1;
+
+                    //if we got a string less than the previous string size
+                    if(length<minlength){
+                        minlength = length;
+                        finalStart = start;
+                        finalEnd = end;
+                    }
+
+                    //if map has the elemnt delete it
+                    if(slidingCount.count(s[start])){
+                        slidingCount[s[start]]--;
+                        //if required count of a character disbalances then decrement have
+                        if(slidingCount[s[start]]<tCount[s[start]]){
+                            have--;
+                        }
+                    }
+                    //continue moving forward i.e dropping elements from start
+                    start++;
+                }
+            }
+        }
+
+        //save final string
+        for(int i=finalStart; i<=finalEnd;i++){
+            ans.push_back(s[i]);
+        }
+        return ans;
+    }
+};
