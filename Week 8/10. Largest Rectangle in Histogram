@@ -1,0 +1,63 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* merge(ListNode* l1, ListNode* l2){
+        ListNode* resultant = new ListNode();
+        ListNode* head = resultant;
+        while(l1!=nullptr && l2!=nullptr){
+            if(l1->val<l2->val){
+                resultant->next = l1;
+                l1 = l1->next;
+            }
+            else{
+                resultant->next = new ListNode(l2->val);
+                l2 = l2->next;
+            }
+            resultant = resultant->next;
+        }
+
+        //if any element of the list is not empty
+        if(l1!=nullptr)
+            resultant->next = l1;
+
+        else if(l2!=nullptr)
+            resultant->next = l2;
+
+        return head->next;
+    }
+
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        ListNode* l1;
+        ListNode* l2;
+        bool notEmpty = true;
+        int index = -1;
+        if(lists.size()==0)
+            return nullptr;
+        
+        while(lists.size()>1){
+            vector<ListNode*> merged;
+            for(int i=0; i<lists.size(); i+=2){
+                l1 = lists[i];
+
+                if(i+1<lists.size()){
+                    l2 = lists[i+1];
+                    merged.push_back(merge(l1, l2));
+                }
+
+                else
+                    merged.push_back(l1);
+            }
+            lists = merged;
+        }
+        return lists[0];
+    }
+};
