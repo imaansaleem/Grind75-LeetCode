@@ -1,0 +1,22 @@
+class Solution {
+public:
+
+    int trap(vector<int>& height) {
+        int left = 0, right = 0, sum =0;
+        vector<int> maxleft(height.size());
+        vector<int> maxright(height.size());
+
+        for(int i=0, j=height.size()-1;i<height.size();i++, j--){
+            if(height[i]>left)
+                left = height[i];
+            if(height[j]>right)
+                right = height[j];
+            maxleft[i] = left;
+            maxright[j] = right;
+        }
+
+        for(int i=0; i<height.size();i++)
+            sum  =  sum + min(maxleft[i],maxright[i]) - height[i];
+        return sum;
+    }
+};
