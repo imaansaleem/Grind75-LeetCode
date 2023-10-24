@@ -1,0 +1,50 @@
+class Solution {
+public:
+    int calculate(string s) {
+        stack<int> numStack;
+        stack<char> opStack;
+        int num = 0;
+        int result = 0;
+        int sign = 1; // 1 for positive, -1 for negative
+        
+        for (int i=0;i<s.size();i++){
+            if (isdigit(s[i]))
+                num = num * 10 + (s[i] - '0');
+
+            else if (s[i] == '+') {
+                result += sign * num;
+                num = 0;
+                //set sign for next computation
+                sign = 1;
+            } 
+            
+            else if (s[i] == '-') {
+                result += sign * num;
+                num = 0;
+                sign = -1;
+            } 
+            
+            else if (s[i] == '(') {
+                //save the previous result
+                numStack.push(result);
+                opStack.push(sign);
+                result = 0;
+                sign = 1;
+            } 
+            
+            else if (s[i] == ')') {
+                result += sign * num;
+                num = 0;
+                result *= opStack.top();
+                result += numStack.top();
+                numStack.pop();
+                opStack.pop();
+            }
+        }
+        
+        // Don't forget to add the last number if there's no closing parenthesis.
+        result += sign * num;
+        
+        return result;
+    }
+};
