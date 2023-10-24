@@ -1,0 +1,56 @@
+class Solution {
+public:
+
+    //find the next job whose start >=end
+    //job lies between l and r
+    int getNextIndex(vector<pair<int, pair<int, int>>> &jobs, int l, int end){
+        //if result is not updated then we will not found start>=end again
+        int result = jobs.size()+1;
+        int r = jobs.size()-1;
+    
+        //applying binary search
+        while(l<=r){
+            int mid = (l+r)/2;
+
+            //You can take it
+            //start >= end
+            if(jobs[mid].first>=end){
+                result = mid;
+
+                //continue finding start that is even more smaller than the one we found
+                r = mid-1;
+            }
+
+            else
+                l = mid+1;
+        }
+        return result;  
+    }
+
+    int solve(vector<pair<int, pair<int, int>>> &jobs, int i, vector<int>&memo){
+        if(i>=jobs.size())
+            return 0;
+
+        if(memo[i]!=-1)
+            return memo[i];
+
+        //job taken
+        int taken = jobs[i].second.second+solve(jobs, getNextIndex(jobs, i+1, jobs[i].second.first), memo);
+        //job not taken
+        int notTaken = solve(jobs, i+1, memo);
+        return memo[i] = max(taken, notTaken);
+    }
+
+    int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
+        // Combine start time, end time, and profit into a vector of pairs
+        vector<pair<int, pair<int, int>>> jobs;
+        for (int i = 0; i < startTime.size(); i++) {
+            jobs.push_back({startTime[i], {endTime[i], profit[i]}});
+        }
+        
+        // Sort the jobs by their start times
+        sort(jobs.begin(), jobs.end());
+        vector<int>memo(jobs.size(), -1);
+        return solve(jobs, 0, memo);
+    }
+};
